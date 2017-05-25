@@ -1,7 +1,7 @@
 // test?.check
 // test?.check?.undefined
 // test.check?.secondary
-var existRegex = /([a-zA-Z]\w+)\?\.([a-zA-Z]\w+)/;
+var existRegex = /([a-zA-Z]\w+)\?[.|()]/;
 
 function replaceProp(str) {
   do {
@@ -12,13 +12,20 @@ function replaceProp(str) {
     var before = str.substr(0, matches.index);
     var after = str.substr(matches.index + matches[0].length);
     var initial = matches[1];
-    var prop = matches[2];
+    var prop = matches[2] || '';
     var prefix = ''
+    var separator = '.'
+    var connector = ' && '
     if (before[before.length - 1] === '.') {
       // has a parent selector
       prefix = before.split(/[ |\(|\{]/).splice(-1);
     }
-    str = before + initial + ' && ' + prefix + initial + '.' + prop + '' + after
+    if (matches[0][matches[0].length - 1] === '(') {
+      // is a function existential
+      separator = '('
+      connector = ' && typeof ' + initial + ' === "function"' + ' && '
+    }
+    str = before + initial + connector + prefix + initial + separator + prop + after
   } while (matches);
 }
 
