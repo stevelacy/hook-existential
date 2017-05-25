@@ -1,5 +1,5 @@
 {
-  "name": "existential-js",
+  "name": "hook-existential",
   "version": "0.0.0",
   "description": "Exisential operations in js",
   "main": "index.js",
@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:stevelacy/existential-js.git"
+    "url": "git@github.com:stevelacy/hook-existential.git"
   },
   "author": "Steve Lacy <me@slacy.me> (http://slacy.me)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/stevelacy/existential-js/issues"
+    "url": "https://github.com/stevelacy/hook-existential/issues"
   },
   "devDependencies": {
     "mocha": "^3.4.1",

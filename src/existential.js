@@ -1,6 +1,7 @@
 // test?.check
 // test?.check?.undefined
 // test.check?.secondary
+// test?()
 var existRegex = /([a-zA-Z]\w+)\?[.|()]/;
 
 function replaceProp(str) {
